@@ -1,0 +1,17 @@
+<div *ngIf="operation$ | async as operation">
+    <h2>Tools suitable for the operation {{operation.name}}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tool Name</th>
+                <th>Tool Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tool of tools$ | async ">
+                <td>{{tool.name}}</td>
+                <td><a href="{{tool.url}}" target="_blank">{{tool.url}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

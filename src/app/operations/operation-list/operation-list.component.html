@@ -1,0 +1,16 @@
+<h2>Operation</h2>
+<label for="operation-select">Select an operation:</label>
+<select id="operation-select" (change)="onSelectChange($event)">
+  <option value="">-- Select an operation --</option>
+  <option *ngFor="let operation of operations | sort" [value]="operation.name">{{operation.name}}</option>
+</select>
+
+<app-tool-detail
+  *ngIf="selectedOperation; else noOperation"
+  [id]="selectedOperation.id"
+  [name]="selectedOperation.name">
+</app-tool-detail>
+
+<ng-template #noOperation>
+  <p>No operation selected! Please select an operation above.</p>
+</ng-template>
